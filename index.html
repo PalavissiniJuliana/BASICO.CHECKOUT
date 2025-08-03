@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Serif%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" />
+    <title>Obrigado por sua compra! | Juliana Palavissini</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      /* Estilos mantidos do template original */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+      }
+      
+      .animate-section {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+      
+      .hover-grow {
+        transition: transform 0.3s ease;
+      }
+      
+      .hover-grow:hover {
+        transform: scale(1.02);
+      }
+      
+      .btn-pulse:hover {
+        animation: pulse 1.5s infinite;
+      }
+      
+      .dark-theme {
+        background-color: #161313;
+        color: #f3f1f2;
+      }
+      
+      .subtitle-apple {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: #86868b;
+        line-height: 1.5;
+      }
+      
+      /* Novos estilos específicos para a página de agradecimento */
+      .checkmark {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: block;
+        stroke-width: 5;
+        stroke: #D4B483;
+        stroke-miterlimit: 10;
+        margin: 0 auto;
+        box-shadow: inset 0px 0px 0px #D4B483;
+        animation: fill-checkmark 0.6s ease-in-out forwards, scale-checkmark 0.6s ease-in-out both;
+      }
+      
+      @keyframes fill-checkmark {
+        0% { box-shadow: inset 0px 0px 0px #D4B483; }
+        100% { box-shadow: inset 0px 0px 0px 40px rgba(212, 180, 131, 0.1); }
+      }
+      
+      @keyframes scale-checkmark {
+        0%, 100% { transform: none; }
+        50% { transform: scale3d(1.1, 1.1, 1); }
+      }
+      
+      .checkmark-circle {
+        stroke-dasharray: 166;
+        stroke-dashoffset: 166;
+        stroke-width: 5;
+        stroke-miterlimit: 10;
+        stroke: #D4B483;
+        fill: none;
+        animation: stroke-checkmark-circle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+      }
+      
+      .checkmark-check {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 48;
+        stroke-dashoffset: 48;
+        animation: stroke-checkmark-check 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+      }
+      
+      @keyframes stroke-checkmark-circle {
+        0% { stroke-dashoffset: 166; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      @keyframes stroke-checkmark-check {
+        0% { stroke-dashoffset: 48; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      .upsell-card {
+        border: 2px solid #D4B483;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+      }
+      
+      .upsell-card:hover {
+        box-shadow: 0 10px 25px rgba(212, 180, 131, 0.2);
+        transform: translateY(-5px);
+      }
+      
+      .countdown {
+        font-size: 1.5rem;
+        color: #D4B483;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body class="dark-theme">
+  
+  <div class="overlay" id="overlay"></div>
+
+  <div class="relative flex size-full min-h-screen flex-col bg-white justify-between group/design-root overflow-x-hidden" style='font-family: "Noto Serif", "Noto Sans", sans-serif;'>
+    <div>
+      <!-- Seção de Confirmação -->
+      <section class="py-16 px-4 text-center animate-section opacity-0 scroll-animate">
+        <div class="max-w-2xl mx-auto">
+          <!-- Ícone de confirmação animado -->
+          <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+          
+          <h1 class="text-3xl md:text-4xl font-bold text-[#D4B483] mt-8 mb-4">Compra Confirmada!</h1>
+          <p class="subtitle-apple text-lg text-[#7f6c6f] mb-8">
+          Parabéns por investir no seu crescimento profissional!          </p>
+          
+          
+          <!-- Botão de ação principal -->
+          <div class="flex flex-col items-center gap-4">
+            <button id="whatsappBtn" class="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-3 px-6 rounded-full hover:bg-[#128C7E] transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51a56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-40,24a8,8,0,0,0-4.42-7.15l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40a88.1,88.1,0,0,0,88,88A40,40,0,0,0,192,152Z"></path>
+              </svg>
+              Falar com a Juliana agora
+            </button>
+            
+            <p class="text-sm text-[#7f6c6f]">Ou copie este link: <span id="whatsappLink" class="text-[#D4B483]">https://wa.me/554185274188</span></p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Seção de Upsell -->
+      <section class="py-12 px-4 bg-[#1e1b1b] animate-section opacity-0 scroll-animate" style="animation-delay: 0.3s;">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-2xl md:text-3xl font-bold text-[#D4B483] text-center mb-2">Eleve sua técnica para o nível Avançado!</h2>
+          <p class="subtitle-apple text-center text-[#f3f1f2] mb-20">Oferta única para quem já deu o primeiro passo!</p>
+
+          <p class="subtitle-apple text-center text-[#f3f1f2] mb-8">O próximo nível está a um clique. O Curso Avançado de Alisamento é exclusivo para quem deseja:</p>
+                </p>
+                <ul class="subtitle-apple text-[#7f6c6f] text-sm mt-2 list-disc pl-5">
+                  <li> Dominar técnicas de alto brilho e longa duração</li>
+                 <li> Se posicionar como referência em alisamento de luxo</li> 
+                  <li>Atrair clientes de ticket mais alto e fidelizar com autoridade</li>
+                  
+                
+          
+          <div class="upsell-card bg-[#161313] p-6 md:p-8 rounded-lg hover-grow mt-10">
+            <div class="flex flex-col md:flex-row gap-6 items-center">
+              <div class="flex-shrink-0">
+                <img src="PRINCIPAL/FOTO005.png" alt="Curso Avançado de Alisamento" class="w-40 h-40 object-cover rounded-lg">
+              </div>
+              
+              <div class="flex-grow">
+                <h3 class="text-xl font-bold text-[#f3f1f2] mb-2">Curso Avançado de Alisamento</h3>
+                <p class="subtitle-apple text-[#7f6c6f] mb-4">
+                  Eleve seu alisamento ao nível premium com técnicas de brilho, durabilidade e valorização profissional.
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <span class="text-[#7f6c6f] text-sm line-through">R$ 1197,00</span>
+                    <span class="text-[#D4B483] text-xl font-bold ml-2">R$ 648,00</span>
+                    <div class="text-[#A05E2C] text-xs">(46% OFF) | 12x de R$64,00</div>
+                  </div>
+                  
+                  <button onclick="window.open('https://wa.me/554185274188?text=Ol%C3%A1%2C%20Juliana!%20Quero%20adicionar%20o%20Curso%20Avan%C3%A7ado%20de%20Alisamento%20%C3%A0%20minha%20compra.%20Como%20fa%C3%A7o%3F')"
+                    class="flex items-center justify-center bg-[#D4B483] text-[#161313] font-bold py-2 px-4 rounded-lg hover:bg-[#A05E2C] hover:text-white transition-colors">
+                    Adicionar ao meu acesso
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <p class="text-center text-sm text-[#7f6c6f] mt-6">⏳ Oferta exclusiva válida apenas para esta compra. Não será oferecida novamente.</p>
+        </div>
+      </section>
+
+      
+      <!-- Seção de Acesso -->
+      <section class="py-12 px-4 animate-section opacity-0 scroll-animate" style="animation-delay: 0.6s;">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="text-2xl font-bold text-[#D4B483] text-center mb-6">Como acessar seu curso</h2>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 bg-[#D4B483] text-[#161313] rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+              <div>
+                <h3 class="text-lg font-bold text-[#7f6c6f] mb-1">Agende sua participação</h3>
+                <p class="subtitle-apple text-[#7f6c6f]">Fale com nossa equipe pelo WhatsApp para agendar suas sessões ao vivo.</p>
+              </div>
+            </div>
+
+            
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 bg-[#D4B483] text-[#161313] rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+              <div>
+                <h3 class="text-lg font-bold text-[#7f6c6f] mb-1">Verifique seu e-mail</h3>
+                <p class="subtitle-apple text-[#7f6c6f]">Após o passo 1 você receberá seu acesso em instantes. Confira a caixa de entrada e spam.</p>
+              </div>
+            </div>
+
+          
+          <div class="mt-10 text-center">
+            <p class="text-[#7f6c6f] mb-4">Precisa de ajuda?</p>
+            <a href="mailto:suporte@julianapalavissini.com" class="inline-block text-[#D4B483] hover:underline">suporte@julianapalavissini.com</a>
+          </div>
+        </div>
+      </section>
+
+      
+      <!-- Footer (mantido do template original) -->
+      <footer id="contato" class="animate-section opacity-0 scroll-animate !mt-12" style="animation-delay: 0.8s;">
+        <div class="flex flex-col gap-6 px-5 py-10 text-center @container bg-[#161313]">
+          <h3 class="footer-title text-[#161313] text-xl font-bold">Contato</h3>
+          <div class="flex flex-col gap-4">
+            <a href="tel:+554185274188" class="flex items-center justify-center gap-2 text-[#7f6c6f] hover:text-[#E8D8C0] transition-colors footer-contact">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.13L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46Z"></path>
+              </svg>
+              (41) 8527-4188
+            </a>
+            <a href="mailto:contato@julianapalavissini.com" class="flex items-center justify-center gap-2 text-[#A05E2C] hover:text-[#E8D8C0] transition-colors footer-contact">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path>
+              </svg>
+              contato@julianapalavissini.com
+            </a>
+          </div>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#" class="hover:scale-110 transition-transform">
+              <div class="text-[#A05E2C] hover:text-[#A05E2C] transition-colors" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path>
+                </svg>
+              </div>
+            </a>
+            <a href="#" class="hover:scale-110 transition-transform">
+              <div class="text-[#A05E2C] hover:text-[#7f6c6f] transition-colors" data-icon="WhatsAppLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51a56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-40,24a8,8,0,0,0-4.42-7.15l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40a88.1,88.1,0,0,0,88,88A40,40,0,0,0,192,152Z"></path>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <p class="footer-copyright text-[#A05E2C] text-base font-normal leading-normal">© 2021 Juliana Palavissini. Todos os direitos reservados.</p>
+        </div>
+        <p class="text-center text-sm text-gray-500 mt-4">
+          Site desenvolvido por <a href="https://wa.me/5546991207326" target="_blank" class="underline hover:text-black font-semibold">(Eduardo Dalla)</a> — Fale comigo pelo WhatsApp.
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Menu Burger (mantido do template original)
+    document.addEventListener('DOMContentLoaded', () => {
+      const burger = document.getElementById('burger');
+      const menuPopup = document.getElementById('menuPopup');
+      const overlay = document.getElementById('overlay');
+      const menuLinks = document.querySelectorAll('.menu-link');
+
+      const closeMenu = () => {
+        burger.classList.remove('active');
+        menuPopup.classList.remove('active');
+        overlay.classList.remove('active');
+      };
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        menuPopup.classList.toggle('active');
+        overlay.classList.toggle('active');
+      });
+
+      overlay.addEventListener('click', closeMenu);
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          closeMenu();
+          if(this.href.includes('cursos.html')) return;
+          if(!this.href.includes(window.location.href)) {
+            e.preventDefault();
+            window.location.href = this.href;
+          }
+        });
+      });
+    });
+
+    // Configura o botão de WhatsApp
+    document.addEventListener('DOMContentLoaded', function() {
+      const whatsappBtn = document.getElementById('whatsappBtn');
+      
+      // Redireciona para o WhatsApp
+      const redirectToWhatsApp = () => {
+        window.location.href = 'https://wa.me/554185274188?text=Ol%C3%A1%2C%20Juliana!%20Acabei%20de%20comprar%20o%20curso%20e%20gostaria%20de%20agendar%20minha%20participa%C3%A7%C3%A3o.';
+      };
+      
+      // Configura o botão de WhatsApp
+      whatsappBtn.addEventListener('click', redirectToWhatsApp);
+      
+      // Animação de elementos ao carregar
+      const animateElements = document.querySelectorAll('.animate-section');
+      animateElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '1';
+        }, index * 200);
+      });
+    });
+  </script>
+</body>
+</html>
